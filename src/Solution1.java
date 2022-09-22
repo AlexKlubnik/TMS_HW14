@@ -7,37 +7,41 @@ public class Solution1 {
         Scanner scanner = new Scanner(System.in);
 
         int day = 0;
-        int dayCounter = 0;
         System.out.println("Enter the day");
-        while (dayCounter < 1) {
+        while (true) {
+            int dayCounter = 0;
             day = scanner.nextInt();
-            if (day > 0 && day < 31) {
+            if (day > 0 && day <= 31) {
                 dayCounter++;
             } else {
                 System.out.println("You entered wrong quantity of days. Try again");
             }
+            if (dayCounter == 1) {
+                break;
+            }
         }
 
         int month = 0;
-        int monthCounter = 0;
         System.out.println("Enter the month");
-        while (monthCounter < 1) {
+        while (true) {
+            int monthCounter = 0;
             month = scanner.nextInt();
-            if (month > 0 && month < 12) {
+            if (month > 0 && month <= 12) {
                 monthCounter++;
             } else {
                 System.out.println("You entered wrong quantity of months. Try again");
             }
+            if (monthCounter == 1) {
+                break;
+            }
         }
-        scanner.close();
+        System.out.println("Enter the year");
+
         LocalDate date = LocalDate.of(scanner.nextInt(), month, day);
-        System.out.println(date.getDayOfWeek());
-    }
-
-       /* System.out.println("Enter the year, month and day:");
-        LocalDate date = LocalDate.of(scanner.nextInt(), scanner.nextInt(), scanner.nextInt());
         scanner.close();
-        System.out.println(date.getDayOfWeek());*/
 
+        System.out.println(date.getDayOfWeek());
+
+    }
 }
 
